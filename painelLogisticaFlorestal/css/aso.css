@@ -1,0 +1,222 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(183, 226, 236, 0.2);
+    min-height: 100vh;
+    display: flex;
+    margin: 0;
+}
+
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50; /* Azul escuro */
+    position: fixed;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar o sidebar */
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+    font-size: 24px; /* Fonte maior para o título */
+    font-weight: 600;
+    color: #ecf0f1; /* Cor mais clara */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    background-color: #34495e; /* Azul mais escuro para os botões */
+    color: #ecf0f1; /* Texto claro */
+    border: none;
+    border-radius: 8px; /* Cantos arredondados */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Suaviza a mudança de cor e anima o hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para os botões */
+    text-align: left; /* Texto alinhado à esquerda */
+    display: flex;
+    align-items: center; /* Alinha verticalmente o texto e ícones (se houver) */
+}
+
+.sidebar button:hover {
+    background-color: #1abc9c; /* Cor mais vibrante ao passar o mouse */
+    color: white; /* Cor do texto branca */
+    transform: translateY(-3px); /* Pequeno efeito de levantar o botão */
+}
+
+.sidebar button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.5); /* Destaque ao focar */
+}
+
+.sidebar button.active {
+    background-color: #16a085; /* Cor diferente para o botão ativo */
+}
+
+.sidebar button i {
+    margin-right: 10px; /* Espaçamento para ícones, se forem usados */
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar button {
+        font-size: 14px;
+    }
+}
+
+
+
+/* Área principal */
+.main-content {
+    margin-left: 270px;  /* Dar espaço para o sidebar */
+    padding: 20px;
+    width: calc(100% - 270px);
+}
+
+/* Título */
+h1 {
+    color: #2c3e50;
+    font-size: 28px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Barra de Pesquisa */
+input#searchInput {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* Tabela */
+.table-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #0066cc;
+    color: white;
+    font-size: 14px;
+}
+
+td {
+    background-color: #f9f9f9;
+    font-size: 12px;
+    word-wrap: break-word;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f0f8ff;
+}
+
+tbody tr:hover {
+    background-color: #d1e7f1;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Paginação */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #004d99;
+}
+
+.pagination button.active {
+    background-color: #004d99;
+    cursor: default;
+}
+
+.pagination button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+
+#chartContainer {
+    opacity: 0;
+    display: none;
+    transition: opacity 1s ease;
+}
+
+#chartContainer.show {
+    display: block;
+    opacity: 1;
+}
+#myChart {
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Transição suave de meio segundo */
+}
+
+#myChart.show {
+    opacity: 1; /* Aplica opacidade quando visível */
+}
